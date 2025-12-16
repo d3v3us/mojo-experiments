@@ -33,6 +33,13 @@ def main():
     make_worldly_by_index(str1, str2)
     print(str1, str2)
 
+    # variable length arguments with type constraints
+    print(count_many_things(5, 11.7, 12))
+
+    # keyword arguments
+    print_nicely(a=7, y=8)
+
+
 
 
 def do_nothing():
@@ -76,3 +83,17 @@ fn make_worldly(mut *strs: String):
 fn make_worldly_by_index(mut *strs: String):
     for i in range(len(strs)):
         strs[i] += " world"
+
+
+fn count_many_things[*ArgTypes: Intable](*args: *ArgTypes) -> Int:
+    var total = 0
+
+    @parameter
+    for i in range(args.__len__()):
+        total += Int(args[i])
+
+    return total
+
+fn print_nicely(**kwargs: Int) raises:
+  for key in kwargs.keys():
+      print(key, "=", kwargs[String(key)])
