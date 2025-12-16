@@ -1,0 +1,11 @@
+[workspace]
+authors = ["Raf Barseghian <raffree.dev@gmail.com>"]
+channels = ["https://conda.modular.com/max-nightly", "conda-forge"]
+name = "001-func"
+platforms = ["osx-arm64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+mojo = ">=0.26.1.0.dev2025121605,<0.27"
